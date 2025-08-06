@@ -8,11 +8,6 @@ function App() {
   const [status, setStatus] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  // Determine API base URL based on environment
-  const API_BASE = process.env.NODE_ENV === 'development' 
-    ? 'http://localhost:5000' 
-    : '';
-
   const generateEmail = async () => {
     if (!prompt.trim()) {
       setStatus('Please enter a prompt');
@@ -23,14 +18,11 @@ function App() {
     setStatus('Generating email...');
     
     try {
-      console.log('Sending request to:', `${API_BASE}/api/generate-email`);
-      const response = await fetch(`${API_BASE}/api/generate-email`, {
+      const response = await fetch('/api/generate-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt })
       });
-      
-      console.log('Response status:', response.status);
       
       if (!response.ok) {
         const errorData = await response.json();
@@ -63,8 +55,7 @@ function App() {
     setStatus('Sending email...');
     
     try {
-      console.log('Sending request to:', `${API_BASE}/api/send-email`);
-      const response = await fetch(`${API_BASE}/api/send-email`, {
+      const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -73,8 +64,6 @@ function App() {
           content: generatedEmail
         })
       });
-      
-      console.log('Response status:', response.status);
       
       if (!response.ok) {
         const errorData = await response.json();
@@ -113,12 +102,6 @@ function App() {
             {status}
           </div>
         )}
-        
-        {/* Debug Info */}
-        <div className="mb-4 text-sm text-gray-500">
-          <p>API Base: {API_BASE || 'Same origin'}</p>
-          <p>Environment: {process.env.NODE_ENV}</p>
-        </div>
         
         {/* Recipients */}
         <div className="mb-4">
