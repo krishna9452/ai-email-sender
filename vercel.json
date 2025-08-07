@@ -23,9 +23,10 @@
       "dest": "client/$1"
     }
   ],
-  "env": {
-    "GROQ_API_KEY": "@groq_api_key",
-    "EMAIL_USER": "@email_user",
-    "EMAIL_PASS": "@email_pass"
+  "functions": {
+    "server/api/*.js": {
+      "memory": 1024,
+      "maxDuration": 30
+    }
   }
 }
