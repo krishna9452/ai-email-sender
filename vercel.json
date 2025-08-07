@@ -5,8 +5,7 @@
       "src": "client/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "build",
-        "nodeVersion": "22.x"
+        "distDir": "build"
       }
     },
     {
@@ -30,8 +29,7 @@
   "functions": {
     "server/api/*.js": {
       "memory": 1024,
-      "maxDuration": 30,
-      "nodeVersion": "22.x"
+      "maxDuration": 30
     }
   }
 }
