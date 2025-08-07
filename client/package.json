@@ -2,10 +2,9 @@
   "name": "ai-email-sender-client",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
+  "engines": {
+    "node": "22.x",
+    "npm": "10.x"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -14,19 +13,9 @@
     "eject": "react-scripts eject",
     "now-build": "npm run build"
   },
-  "devDependencies": {
-    "tailwindcss": "^3.4.3"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1"
   }
 }
