@@ -33,7 +33,7 @@ The **AI Email Sender** is a full-stack web application that uses AI to generate
 
 ## 🔗 Live Demo
 
-👉 [View Live Demo](https://your-vercel-app-url.vercel.app)  
+👉 [View Live Demo](https://ai-email-sender-gi9typp4c-krishna-verma-s-projects.vercel.app/)  
 > ⚠️ Note: Requires valid environment variables to be configured.
 
-working on deployment 
+
