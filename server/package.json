@@ -5,9 +5,6 @@
     "node": "22.x",
     "npm": "10.x"
   },
-  "scripts": {
-    "start": "node api/generate-email.js"
-  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",

@@ -1,12 +1,11 @@
 const { Groq } = require('groq-sdk');
-require('dotenv').config();
 
 module.exports = async (req, res) => {
-  // Add CORS headers
+  // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  
+
   // Handle preflight requests
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
@@ -24,7 +23,11 @@ module.exports = async (req, res) => {
         error: "Valid prompt is required (min 5 characters)",
       });
     }
-    
+
+    if (!process.env.GROQ_API_KEY) {
+      throw new Error("GROQ_API_KEY is not configured");
+    }
+
     const groq = new Groq({
       apiKey: process.env.GROQ_API_KEY,
       timeout: 30000
